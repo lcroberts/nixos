@@ -17,6 +17,8 @@
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
 
   networking.hostName = "notascam"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -136,6 +138,7 @@
     neovim
     unzip
     wl-clipboard
+    spice-vdagent
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
