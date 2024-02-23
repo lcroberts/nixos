@@ -1,0 +1,40 @@
+# Read `man 5 sway` for a complete reference.
+
+# Default sway scripts
+include /etc/sway/config.d/*
+include keybinds
+include appearance
+include behavior
+exec "export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock"
+
+
+### Variables
+#
+# Set some useful vars. Use Mod1 for Alt.
+set $mod Mod4
+set $mod2 Mod1
+set $lock_command "~/Scripts/lock.sh"
+set $term kitty
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Kanshi handles display management
+exec_always pkill kanshi; exec kanshi
+# Background
+exec_always pkill swaybg; swaybg -i $HOME/Pictures/Wallpapers/currentbg
+
+# Sway autotiling extension
+exec autotiling
+
+exec ~/Scripts/startup-sway.sh
+exec swayidle -w before-sleep "$HOME/Scripts/lock.sh"
+exec fcitx5
+exec nm-applet
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec ~/.screenlayout/test.sh
+exec_always pkill waybar; waybar -c $HOME/.config/waybar/config.sway
+
+# Enable numlock on start
+input type:keyboard xkb_numlock enabled
