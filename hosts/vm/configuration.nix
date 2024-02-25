@@ -8,7 +8,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   imports = [
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -102,7 +102,7 @@
     extraGroups = [ "networkmanager" "wheel" "libvirt" ];
     shell = pkgs.bash;
     packages = with pkgs; [
-      floorp
+      firefox
       starship
       kitty
       tmux
