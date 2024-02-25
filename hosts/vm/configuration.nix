@@ -8,9 +8,9 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   imports = [
-      /etc/nixos/hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-    ];
+    /etc/nixos/hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -114,18 +114,18 @@
       go
       nodePackages.npm
       p7zip
+      rustup
+      tldr
+      nixfmt
     ];
   };
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-  ];
+  fonts.packages = with pkgs;
+    [ (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; }) ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      "logan" = import ../../home/home-logan.nix;
-    };
+    users = { "logan" = import ../../home/home-logan.nix; };
   };
 
   # Allow unfree packages
