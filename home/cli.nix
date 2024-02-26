@@ -1,7 +1,17 @@
-{ pkgs, ... }:
+{ config, pkgs, fetchFromGitHub, ... }:
 
 {
-  home.packages = with pkgs; [ btop git direnv starship fish tmux ];
+  home.packages = with pkgs; [
+    xsel
+    ripgrep
+    fzf
+    btop
+    git
+    direnv
+    starship
+    fish
+    tmux
+  ];
 
   programs = {
     btop = {
@@ -144,7 +154,19 @@
         tmuxPlugins.open
         tmuxPlugins.continuum
         tmuxPlugins.resurrect
-        tmuxPlugins.catppuccin
+        {
+          plugin = tmuxPlugins.mkTmuxPlugin {
+            pluginName = "tokyo-night-tmux";
+            version = "6189acc";
+            rtpFilePath = "tokyo-night.tmux";
+            src = pkgs.fetchFromGitHub {
+              owner = "janoamaral";
+              repo = "tokyo-night-tmux";
+              rev = "6189acc8b3c76afd545b824494884684f57b714d";
+              sha256 = "sha256-am3qcVJOt27gpu1UQ+o1jPnCX68kDzSHvER12Lh2cvY=";
+            };
+          };
+        }
       ];
     };
   };
