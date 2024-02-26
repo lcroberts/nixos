@@ -73,7 +73,14 @@
           bash_indicator = "[](green)";
           zsh_indicator = "[󰞷](green)";
         };
-        os.disabled = false;
+        os = {
+          disabled = false;
+          symbols = {
+            Arch = "[󰣇](blue) ";
+            EndeavourOS = "[󰣇](blue) ";
+            NixOS = "[](blue) ";
+          };
+        };
         line_break.disabled = true;
         character.error_symbol = "[✗](bold red) ";
         fill.symbol = " ";
