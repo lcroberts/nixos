@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ./cli.nix ];
+
   home.username = "logan";
   home.homeDirectory = "/home/logan";
 
@@ -15,96 +17,25 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+  home.packages = with pkgs;
+    [
+      # # Adds the 'hello' command to your environment. It prints a friendly
+      # # "Hello, world!" when run.
+      # pkgs.hello
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+      # # It is sometimes useful to fine-tune packages, for example, by applying
+      # # overrides. You can do that directly here, just don't forget the
+      # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+      # # fonts?
+      # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-  ];
-
-  programs = {
-    btop = {
-      enable = true;
-      settings = {
-        color_theme = "tokyo-night";
-        vim_keys = true;
-      };
-    };
-    git = {
-      enable = true;
-      userEmail = "logancroberts@outlook.com";
-      userName = "Logan Roberts";
-    };
-    direnv = {
-      enable = true;
-      enableFishIntegration = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
-    };
-    starship = {
-      enable = true;
-      enableFishIntegration = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
-      settings = {
-        add_newline = false;
-        format = ''$all
-''${custom.date}$os$shell$character'';
-        palette = "tokyonight";
-        palettes.tokyonight = {
-          green = "#73daca";
-          red = "#f7768e";
-          black = "#414868";
-          yellow = "#e0af68";
-          blue = "#7aa2f7";
-          magenta = "#bb9af7";
-          cyan = "#7dcfff";
-          white = "#c0caf5";
-        };
-        username = {
-          show_always = true;
-          format = "[$user@]($style)";
-          style_user = "magenta";
-        };
-        hostname = {
-          ssh_only = false;
-          style = "magenta";
-        };
-        directory = {
-          truncation_length = 8;
-          truncation_symbol = ".../";
-          style = "cyan";
-        };
-        shell = {
-            disabled = false;
-            fish_indicator = "[󰈺](green)"; # Use nerd font symbols
-            bash_indicator = "[](green)";
-            zsh_indicator = "[󰞷](green)";
-        };
-        os.disabled = false;
-        line_break.disabled = true;
-        character.error_symbol = "[✗](bold red) ";
-        fill.symbol = " ";
-        custom.date = {
-          command = "date +%a' '%b' '%d' '%H:%M:%S";
-          when = true;
-          style = "magenta";
-        };
-      };
-    };
-  };
+      # # You can also create simple shell scripts directly inside your
+      # # configuration. For example, this adds a command 'my-hello' to your
+      # # environment:
+      # (pkgs.writeShellScriptBin "my-hello" ''
+      #   echo "Hello, ${config.home.username}!"
+      # '')
+    ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -114,10 +45,6 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".config/fish" = {
-      recursive = true;
-      source = ./configs/fish;
-    };
   };
 
   # Home Manager can also manage your environment variables through
