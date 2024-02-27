@@ -1,6 +1,10 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, inputs, ... }:
 
 {
+  programs.hyprland.enable = true;
+  programs.hyprland.package =
+    inputs.hyprland.packages."${pkgs.system}".hyprland;
+
   home.packages = with pkgs; [
     wl-clipboard
     waybar
@@ -10,6 +14,10 @@
   ];
   wayland.windowManager.hyprland = {
     enable = true;
+    xwayland = {
+      enable = true;
+      hidpi = true;
+    };
     settings = {
       "$mainMod" = "SUPER";
       "$altMod" = "ALT";
