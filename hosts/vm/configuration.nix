@@ -21,7 +21,7 @@
   services.spice-vdagentd.enable = true;
 
   networking.hostName = "notascam"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = true; # Enables wireless support wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -100,22 +100,14 @@
     shell = pkgs.bash;
     packages = with pkgs; [
       firefox
-      starship
       kitty
-      tmux
-      eza
-      fish
-      autojump
-      direnv
       fzf
       lua
       gcc
       python3
       go
       nodePackages.npm
-      p7zip
       rustup
-      tldr
       nixfmt
     ];
   };
@@ -133,12 +125,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim
-    unzip
-    wl-clipboard
-    spice-vdagent
-  ];
+  environment.systemPackages = with pkgs; [ neovim unzip spice-vdagent ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -166,5 +153,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }

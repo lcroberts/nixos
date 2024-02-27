@@ -3,14 +3,19 @@
 {
   home.packages = with pkgs; [
     xsel
+    wl-clipboard
     ripgrep
-    fzf
     btop
     git
     direnv
     starship
     fish
     tmux
+    autojump
+    fzf
+    eza
+    p7zip
+    tldr
   ];
 
   programs = {
@@ -100,8 +105,8 @@
         bind C-space send-prefix
 
         # Fix terminal colors
-        set-option -sa terminal-overrides ",xterm*:Tc"
-        # set -sg terminal-overrides ",*:RGB"
+        # set-option -sa terminal-overrides ",xterm*:Tc"
+        set -sg terminal-overrides ",*:RGB"
 
         # Enable Mouse toggle
         set -g mouse on
@@ -151,8 +156,6 @@
         # Set clipboard for tmux yank
         set -g set-clipboard on
         set -g @continuum-restore 'on'
-        set -g @plugin 'noscript/tmux-mighty-scroll'
-        set -g @mighty-scroll-interval 5
       '';
       plugins = with pkgs; [
         tmuxPlugins.sensible
