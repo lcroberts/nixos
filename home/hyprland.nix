@@ -9,6 +9,7 @@
     playerctl
     brightnessctl
     kitty
+    rofi-wayland
   ];
 
   wayland.windowManager.hyprland = {
@@ -129,6 +130,10 @@
     ".config/kanshi" = {
       recursive = true;
       source = ./configs/kanshi;
+    };
+    ".config/rofi" = {
+      recursive = true;
+      source = ./configs/rofi;
     };
   };
 
