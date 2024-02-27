@@ -11,6 +11,7 @@
     /etc/nixos/hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
+  programs.hyprland.enable = true;
 
   # Bootloader.
   boot.loader.grub.enable = true;

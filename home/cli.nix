@@ -16,6 +16,7 @@
     eza
     p7zip
     tldr
+    bat
   ];
 
   programs = {

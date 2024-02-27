@@ -25,12 +25,12 @@
         "memory",
         "cpu",
         // "custom/keyboard-layout",
-        // "battery",
+        "battery",
         //"custom/PBPbattery",
         // "backlight#icon",
         // "backlight#value",
         "pulseaudio",
-    "pulseaudio#microphone",
+        "pulseaudio#microphone",
     ],
 
     // Modules

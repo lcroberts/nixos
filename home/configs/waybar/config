@@ -1,4 +1,4 @@
-// Global 
+// Global
 {
     "layer": "top",
     "position": "top",
@@ -13,7 +13,7 @@
         // "custom/media",
         "hyprland/window",
     ],
- 
+
     "modules-center": [
         "clock",
     ],
@@ -24,12 +24,12 @@
         "memory",
         "cpu",
         // "custom/keyboard-layout",
-        // "battery",
+        "battery",
         //"custom/PBPbattery",
         // "backlight#icon",
-        // "backlight#value",
+        "backlight#value",
         "pulseaudio",
-    "pulseaudio#microphone",
+        "pulseaudio#microphone",
     ],
 
     // Modules
@@ -48,7 +48,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
+        "format": "{capacity}% {icon} ",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         // "format-good": "", // An empty format will hide the module
@@ -167,7 +167,7 @@
         "format": "{format_source}",
         "format-source": " {volume}%",
         "format-source-muted": "",
-        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle", 
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
         "on-click-right": "pavucontrol",
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
@@ -177,7 +177,7 @@
     // to use the weather module replace <your_location> with your city or town
     // note: do not use spaces: new york would be newyork
     "custom/weather": {
-        "exec": "~/.config/waybar/scripts/weather.sh tampa", 
+        "exec": "~/.config/waybar/scripts/weather.sh tampa",
         "return-type": "json",
         "interval": 600,
 
@@ -196,7 +196,7 @@
     },
 
     "backlight#value" :{
-         "format": "{percent}%",
+         "format": " {percent}%",
          "on-scroll-down": "brightnessctl -c backlight set 1%-",
          "on-scroll-up": "brightnessctl -c backlight set +1%"
     },
