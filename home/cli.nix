@@ -187,5 +187,7 @@
       recursive = true;
       source = ./configs/fish;
     };
+    ".config/tmux-cht-commands".source = ./configs/tmux-cht-commands;
+    ".config/tmux-cht-languages".source = ./configs/tmux-cht-languages;
   };
 }

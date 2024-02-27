@@ -36,6 +36,13 @@
     VISUAL = "nvim";
   };
 
+  home.file = {
+    "Scripts" = {
+      recursive = true;
+      source = ./configs/Scripts;
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

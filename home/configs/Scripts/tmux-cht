@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Modified versions of a script found in the Primagen's dots
+selected=$( cat ~/.config/tmux-cht-languages ~/.config/tmux-cht-commands | fzf )
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+read -rp "Enter Query: " query
+
+echo $query
+if grep -qs "$selected" ~/.config/tmux-cht-languages; then
+    query=$( echo $query | tr ' ' '+' )
+    tmux neww bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query & while [ : ]; do sleep 1; done"
+else
+    echo "Command"
+    tmux neww bash -c "curl -s cht.sh/$selected~$query | bat"
+fi
