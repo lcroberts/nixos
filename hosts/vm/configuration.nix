@@ -129,6 +129,7 @@
       nodePackages.npm
       rustup
       nixfmt
+      gnumake
     ];
   };
 
