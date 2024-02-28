@@ -130,8 +130,19 @@
       rustup
       nixfmt
       gnumake
+      lldb
+      xsel
+      ripgrep
+      git
+      steam-run
     ];
   };
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs;
+    [
+      # Add any missing dynamic libraries for unpackaged programs
+      # here, NOT in environment.systemPackages
+    ];
 
   fonts.packages = with pkgs;
     [ (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; }) ];
@@ -147,6 +158,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [ neovim unzip spice-vdagent ];
+  programs.neovim.enable = true;
 
   environment.sessionVariables = rec {
     XDG_CACHE_HOME = "$HOME/.cache";

@@ -2,11 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    xsel
-    wl-clipboard
-    ripgrep
     btop
-    git
     direnv
     starship
     fish
@@ -169,6 +165,7 @@
         tmuxPlugins.vim-tmux-navigator
         tmuxPlugins.yank
         tmuxPlugins.open
+        tmuxPlugins.tmux-fzf
         {
           plugin = tmuxPlugins.resurrect;
           extraConfig = ''
