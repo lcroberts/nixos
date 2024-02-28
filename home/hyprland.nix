@@ -135,6 +135,8 @@
       recursive = true;
       source = ./configs/rofi;
     };
+    ".local/share/rofi/themes/tokyonight.rasi".source =
+      ./configs/rofi/tokyonight.rasi;
   };
 
   home.pointerCursor = {
