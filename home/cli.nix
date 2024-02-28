@@ -17,6 +17,7 @@
     p7zip
     tldr
     bat
+    moreutils
   ];
 
   programs = {
@@ -154,17 +155,37 @@
         set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
         set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
 
+
+
+        set -g @plugin 'tmux-plugins/tmux-sensible'
+        set -g @plugin 'christoomey/vim-tmux-navigator'
+        set -g @plugin "janoamaral/tokyo-night-tmux"
         # Set clipboard for tmux yank
         set -g set-clipboard on
-        set -g @continuum-restore 'on'
+
       '';
       plugins = with pkgs; [
         tmuxPlugins.sensible
         tmuxPlugins.vim-tmux-navigator
         tmuxPlugins.yank
         tmuxPlugins.open
-        tmuxPlugins.continuum
-        tmuxPlugins.resurrect
+        {
+          plugin = tmuxPlugins.resurrect;
+          extraConfig = ''
+            set -g @resurrect-dir $XDG_DATA_HOME/tmux/resurrect
+            set -g @resurrect-strategy-vim 'session'
+            set -g @resurrect-strategy-nvim 'session'
+            set -g @resurrect-hook-post-save-all "target=$(readlink -f $XDG_DATA_HOME/tmux/resurrect/last); sed \"s| --cmd .*-vim-pack-dir||g; s|/etc/profiles/per-user/$USER/bin/||g; s|/home/$USER/.nix-profile/bin/||g\" $target | sponge $target's 'on'"
+          '';
+        }
+        {
+          plugin = tmuxPlugins.continuum;
+          extraConfig = ''
+            set -g @continuum-restore 'on'
+            set -g @continuum-boot 'on'
+            set -g @continuum-save-interval '10'
+          '';
+        }
         {
           plugin = tmuxPlugins.mkTmuxPlugin {
             pluginName = "tokyo-night-tmux";
