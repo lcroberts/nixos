@@ -132,8 +132,12 @@
       # here, NOT in environment.systemPackages
     ];
 
-  fonts.packages = with pkgs;
-    [ (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; }) ];
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    source-code-pro
+    noto-fonts
+    noto-fonts-emoji-blob-bin
+  ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -147,6 +151,13 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [ vim unzip spice-vdagent ];
   programs.neovim.enable = true;
+
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-with-addons ];
+  };
+
+  services.xserver.desktopManager.runXdgAutostartIfNone = true;
 
   environment.sessionVariables = rec {
     XDG_CACHE_HOME = "$HOME/.cache";

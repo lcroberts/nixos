@@ -53,6 +53,14 @@ in {
       recursive = true;
       source = "${home}/Scripts";
     };
+    ".config/fcitx5" = {
+      recursive = true;
+      source = "${home}/configs/fcitx5";
+    };
+    ".local/share/fcitx5/themes" = {
+      recursive = true;
+      source = "${home}/configs/fcitx5-themes";
+    };
   };
 
   # Let Home Manager install and manage itself.
