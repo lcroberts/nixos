@@ -134,7 +134,7 @@
       xsel
       ripgrep
       git
-      steam-run
+      steam-run # useful to emulate a standard file system for some applications
     ];
   };
   programs.nix-ld.enable = true;

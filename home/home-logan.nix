@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./cli.nix ./hyprland.nix ];
+  imports = [ ./cli ./hyprland.nix ];
 
   home.username = "logan";
   home.homeDirectory = "/home/logan";
@@ -38,6 +38,12 @@
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
+  };
+
+  programs.git = {
+    enable = true;
+    userEmail = "logancroberts@outlook.com";
+    userName = "Logan Roberts";
   };
 
   home.file = {
