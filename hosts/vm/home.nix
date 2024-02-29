@@ -51,7 +51,7 @@ in {
   home.file = {
     "Scripts" = {
       recursive = true;
-      source = "${home}/configs/Scripts";
+      source = "${home}/Scripts";
     };
   };
 

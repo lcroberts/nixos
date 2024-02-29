@@ -9,3 +9,4 @@ lua
 python
 bash
 gdb
+nix
