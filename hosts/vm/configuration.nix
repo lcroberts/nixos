@@ -146,7 +146,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ neovim unzip spice-vdagent ];
+  environment.systemPackages = with pkgs; [ vim unzip spice-vdagent ];
   programs.neovim.enable = true;
 
   environment.sessionVariables = rec {

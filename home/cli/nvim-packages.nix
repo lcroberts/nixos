@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    neovim
     luajit
     gcc
     python3
