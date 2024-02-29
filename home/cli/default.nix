@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./tmux.nix ./starship.nix ./btop.nix ];
+  imports = [ ./tmux.nix ./starship.nix ./btop.nix ./nvim-packages.nix ];
   home.packages = with pkgs; [ direnv fish autojump fzf eza p7zip tldr bat ];
 
   programs.direnv = {

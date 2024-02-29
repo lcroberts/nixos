@@ -121,18 +121,7 @@
     packages = with pkgs; [
       firefox
       kitty
-      fzf
-      lua
-      gcc
-      python3
-      go
-      nodePackages.npm
-      rustup
-      nixfmt
-      gnumake
-      lldb
       xsel
-      ripgrep
       git
       steam-run # useful to emulate a standard file system for some applications
     ];
