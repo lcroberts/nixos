@@ -106,7 +106,7 @@
   };
 
   home.file = {
-    ".config/tmux-cht-commands".source = ../configs/tmux-cht-commands;
-    ".config/tmux-cht-languages".source = ../configs/tmux-cht-languages;
+    ".config/tmux-cht-commands".source = ./tmux-cht-commands;
+    ".config/tmux-cht-languages".source = ./tmux-cht-languages;
   };
 }
