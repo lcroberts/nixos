@@ -137,7 +137,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = { "logan" = import ../../home/home-logan.nix; };
+    users = { "logan" = import ./home.nix; };
   };
 
   # Allow unfree packages

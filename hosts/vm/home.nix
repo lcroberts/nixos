@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
-{
-  imports = [ ./cli ./desktops/hyprland ./applications/kitty ];
+let home = ../../home;
+in {
+  imports =
+    [ "${home}/cli" "${home}/desktops/hyprland" "${home}/applications/kitty" ];
 
   home.username = "logan";
   home.homeDirectory = "/home/logan";
@@ -49,7 +51,7 @@
   home.file = {
     "Scripts" = {
       recursive = true;
-      source = ./configs/Scripts;
+      source = "${home}/configs/Scripts";
     };
   };
 
