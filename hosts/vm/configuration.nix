@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -120,7 +120,6 @@
     shell = pkgs.bash;
     packages = with pkgs; [
       firefox
-      kitty
       xsel
       git
       steam-run # useful to emulate a standard file system for some applications

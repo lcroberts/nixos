@@ -1,4 +1,4 @@
-{ pkgs, config, lib, inputs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -8,7 +8,6 @@
     sway-contrib.grimshot
     playerctl
     brightnessctl
-    kitty
     rofi-wayland
   ];
 
@@ -119,10 +118,6 @@
   };
 
   home.file = {
-    ".config/kitty" = {
-      recursive = true;
-      source = ../../configs/kitty;
-    };
     ".config/waybar" = {
       recursive = true;
       source = ../../configs/waybar;
