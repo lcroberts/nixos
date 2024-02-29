@@ -121,22 +121,22 @@
   home.file = {
     ".config/kitty" = {
       recursive = true;
-      source = ./configs/kitty;
+      source = ../../configs/kitty;
     };
     ".config/waybar" = {
       recursive = true;
-      source = ./configs/waybar;
+      source = ../../configs/waybar;
     };
     ".config/kanshi" = {
       recursive = true;
-      source = ./configs/kanshi;
+      source = ../../configs/kanshi;
     };
     ".config/rofi" = {
       recursive = true;
-      source = ./configs/rofi;
+      source = ../../configs/rofi;
     };
     ".local/share/rofi/themes/tokyonight.rasi".source =
-      ./configs/rofi/tokyonight.rasi;
+      ../../configs/rofi/tokyonight.rasi;
   };
 
   home.pointerCursor = {

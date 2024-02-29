@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./cli ./hyprland.nix ];
+  imports = [ ./cli ./desktops/hyprland ];
 
   home.username = "logan";
   home.homeDirectory = "/home/logan";
