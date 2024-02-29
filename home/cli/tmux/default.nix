@@ -79,13 +79,14 @@
         plugin = tmuxPlugins.resurrect;
         extraConfig = ''
           set -g @resurrect-dir $XDG_DATA_HOME/tmux/resurrect
+          set -g @resurrect-capture-pane-contents 'on'
+          set -g @resurrect-processes 'btop'
         '';
       }
       {
         plugin = tmuxPlugins.continuum;
         extraConfig = ''
           set -g @continuum-restore 'on'
-          set -g @continuum-boot 'on'
           set -g @continuum-save-interval '10'
         '';
       }
