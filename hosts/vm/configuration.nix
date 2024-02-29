@@ -137,6 +137,12 @@
     source-code-pro
     noto-fonts
     noto-fonts-emoji-blob-bin
+    carlito
+    dejavu_fonts
+    ipafont
+    kochi-substitute
+    ttf_bitstream_vera
+    noto-fonts-cjk
   ];
 
   home-manager = {
