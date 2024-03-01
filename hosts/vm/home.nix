@@ -54,10 +54,12 @@ in {
       source = "${home}/Scripts";
     };
     ".config/fcitx5" = {
+      force = true;
       recursive = true;
       source = "${home}/configs/fcitx5";
     };
     ".local/share/fcitx5/themes" = {
+      force = true;
       recursive = true;
       source = "${home}/configs/fcitx5-themes";
     };
