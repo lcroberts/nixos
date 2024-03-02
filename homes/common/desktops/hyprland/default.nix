@@ -169,6 +169,7 @@
         "float, class:(xdg-desktop-portal-gtk)"
         "float, title:(Steam Settings)"
       ];
+      misc = { vrr = true; };
     };
   };
 }

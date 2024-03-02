@@ -1,9 +1,8 @@
 { pkgs, ... }:
 
-let home = ../../home;
+let home = ../../homes;
 in {
-  imports =
-    [ "${home}/cli" "${home}/desktops/hyprland" "${home}/applications/kitty" ];
+  imports = [ "${home}/common" ];
 
   home.username = "logan";
   home.homeDirectory = "/home/logan";
