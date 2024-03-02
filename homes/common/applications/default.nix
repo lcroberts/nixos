@@ -7,5 +7,11 @@
     anki-bin
     spotifywm
     vesktop # discord with vencord
+    floorp
+    keepassxc
+    evince
+    kdePackages.filelight
+    drawio
+    mpv
   ];
 }

@@ -4,6 +4,10 @@
     sway-contrib.grimshot
     playerctl
     brightnessctl
+    swayidle
+    swaylock-effects
+    swaybg
+    xwaylandvideobridge
   ];
 
   imports = [./rofi ./waybar ./kanshi];
