@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [fish autojump fzf eza bat];
+  home.packages = with pkgs; [fish autojump fzf eza bat pigz];
 
   home.file = {
     ".config/fish" = {

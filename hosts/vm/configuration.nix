@@ -130,6 +130,9 @@
       xsel
       git
       steam-run # useful to emulate a standard file system for some applications
+      (pkgs.writeShellScriptBin "rebuild-system" ''
+        sudo nixos-rebuild switch --impure --flake $HOME/nixos#vm
+      '')
     ];
   };
   programs.nix-ld.enable = true;
@@ -162,7 +165,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [vim unzip spice-vdagent];
-  programs.neovim.enable = true;
 
   i18n.inputMethod = {
     enabled = "fcitx5";
