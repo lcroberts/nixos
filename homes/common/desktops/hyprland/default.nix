@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
-{
-  imports = [ ../wayland-wm ];
+{pkgs, ...}: {
+  imports = [../wayland-wm];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -142,8 +140,8 @@
         pseudotile = true;
         preserve_split = true;
       };
-      master = { new_is_master = true; };
-      gestures = { workspace_swipe = false; };
+      master = {new_is_master = true;};
+      gestures = {workspace_swipe = false;};
       windowrulev2 = [
         "workspace 1 silent, class:^(kitty)"
         "workspace 2 silent, class:^(firefox)"
@@ -169,7 +167,7 @@
         "float, class:(xdg-desktop-portal-gtk)"
         "float, title:(Steam Settings)"
       ];
-      misc = { vrr = true; };
+      misc = {vrr = true;};
     };
   };
 }

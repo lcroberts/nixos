@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     wl-clipboard
     sway-contrib.grimshot
@@ -8,5 +6,5 @@
     brightnessctl
   ];
 
-  imports = [ ./rofi ./waybar ./kanshi ];
+  imports = [./rofi ./waybar ./kanshi];
 }

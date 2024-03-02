@@ -1,7 +1,9 @@
-{ pkgs, inputs, ... }:
-
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  pkgs,
+  inputs,
+  ...
+}: {
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   imports = [
     /etc/nixos/hardware-configuration.nix
@@ -116,7 +118,7 @@
   users.users.logan = {
     isNormalUser = true;
     description = "Logan Roberts";
-    extraGroups = [ "networkmanager" "wheel" "libvirt" ];
+    extraGroups = ["networkmanager" "wheel" "libvirt"];
     shell = pkgs.bash;
     packages = with pkgs; [
       firefox
@@ -126,14 +128,13 @@
     ];
   };
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs;
-    [
-      # Add any missing dynamic libraries for unpackaged programs
-      # here, NOT in environment.systemPackages
-    ];
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+  ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
     source-code-pro
     noto-fonts
     noto-fonts-emoji-blob-bin
@@ -146,8 +147,8 @@
   ];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = { "logan" = import ./home.nix; };
+    extraSpecialArgs = {inherit inputs;};
+    users = {"logan" = import ./home.nix;};
   };
 
   # Allow unfree packages
@@ -155,12 +156,12 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ vim unzip spice-vdagent ];
+  environment.systemPackages = with pkgs; [vim unzip spice-vdagent];
   programs.neovim.enable = true;
 
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-with-addons ];
+    fcitx5.addons = with pkgs; [fcitx5-mozc fcitx5-with-addons];
   };
 
   services.xserver.desktopManager.runXdgAutostartIfNone = true;
@@ -173,7 +174,7 @@
 
     # Not officially in the specification
     XDG_BIN_HOME = "$HOME/.local/bin";
-    PATH = [ "${XDG_BIN_HOME}" ];
+    PATH = ["${XDG_BIN_HOME}"];
   };
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     neovim
     luajit
@@ -9,7 +7,7 @@
     go
     nodePackages.npm
     rustup
-    nixfmt
+    alejandra
     gnumake
     lldb
     ripgrep

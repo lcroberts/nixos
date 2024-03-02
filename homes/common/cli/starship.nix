@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
-{
-  home.packages = with pkgs; [ starship ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [starship];
 
   programs.starship = {
     enable = true;

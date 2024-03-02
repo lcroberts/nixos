@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
-{
-  home.packages = with pkgs; [ waybar ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [waybar];
 
   home.file.".config/waybar" = {
     recursive = true;

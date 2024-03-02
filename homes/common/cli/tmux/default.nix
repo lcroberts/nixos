@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
-{
-  home.packages = with pkgs; [ tmux ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [tmux];
 
   programs.tmux = {
     enable = true;
