@@ -240,5 +240,8 @@
   };
   programs.virt-manager.enable = true;
 
+  services.tlp.enable = true;
+  services.power-profiles-daemon.enable = false;
+
   system.stateVersion = "23.11";
 }
