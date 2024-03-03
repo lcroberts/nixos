@@ -31,6 +31,19 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.firewall = {
+    allowedTCPPortRanges = [
+      # spice
+      {
+        from = 5900;
+        to = 5999;
+      }
+    ];
+    allowedTCPPorts = [
+      # libvirt
+      16509
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -164,7 +177,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [vim unzip spice-vdagent appimage-run];
+  environment.systemPackages = with pkgs; [vim unzip appimage-run virtiofsd virtio-win];
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
     interpreter = "${pkgs.appimage-run}/bin/appimage-run";
@@ -214,7 +227,17 @@
     })
     config.nix.registry;
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        ovmf.enable = true;
+        ovmf.packages = [pkgs.OVMFFull.fd];
+        swtpm.enable = true;
+      };
+    };
+    spiceUSBRedirection.enable = true;
+  };
   programs.virt-manager.enable = true;
 
   system.stateVersion = "23.11";
