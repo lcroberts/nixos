@@ -5,7 +5,7 @@
 }: let
   home = ../../homes;
 in {
-  imports = ["${home}/common" "${home}/common/virt-dconf.nix"];
+  imports = ["${home}/common"];
 
   home.username = "logan";
   home.homeDirectory = "/home/logan";
@@ -66,6 +66,13 @@ in {
       force = true;
       recursive = true;
       source = "${home}/configs/fcitx5-themes";
+    };
+  };
+
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
     };
   };
 
