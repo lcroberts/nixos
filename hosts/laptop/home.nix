@@ -5,7 +5,7 @@
 }: let
   home = ../../homes;
 in {
-  imports = ["${home}/common"];
+  imports = ["${home}/common" "${home}/common/virt-dconf.nix"];
 
   home.username = "logan";
   home.homeDirectory = "/home/logan";

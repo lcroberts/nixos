@@ -15,7 +15,7 @@
     inputs.home-manager.nixosModules.default
   ];
 
-   # Bootloader.
+  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -123,7 +123,7 @@
   users.users.logan = {
     isNormalUser = true;
     description = "Logan Roberts";
-    extraGroups = ["networkmanager" "wheel" "libvirt" "docker"];
+    extraGroups = ["networkmanager" "wheel" "libvirtd" "docker"];
     shell = pkgs.bash;
     packages = with pkgs; [
       firefox
@@ -213,6 +213,9 @@
       value.source = value.flake;
     })
     config.nix.registry;
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   system.stateVersion = "23.11";
 }
