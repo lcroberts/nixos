@@ -8,6 +8,7 @@
     swaylock-effects
     swaybg
     xwaylandvideobridge
+    networkmanagerapplet
   ];
 
   imports = [./rofi ./waybar ./kanshi];

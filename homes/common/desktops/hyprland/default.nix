@@ -13,6 +13,9 @@
       ];
       exec-once = [
         "/nix/store/$(ls -la /nix/store | grep polkit-kde-agent | grep '^d' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 &"
+        "nm-applet"
+        "onedrivegui"
+        "fcitx5"
       ];
       bind = [
         "$mainMod, V, togglefloating,"
@@ -107,8 +110,8 @@
         gaps_in = 3;
         gaps_out = 5;
         border_size = 2;
-        col.active_border = "rgba(7aa2f7ee) rgba(565f89ee) 45deg";
-        col.inactive_border = "rgba(1a1b26aa)";
+        "col.active_border" = "rgba(7aa2f7ee) rgba(565f89ee) 45deg";
+        "col.inactive_border" = "rgba(1a1b26aa)";
         layout = "dwindle";
       };
       decoration = {
@@ -121,7 +124,7 @@
         drop_shadow = true;
         shadow_range = 4;
         shadow_render_power = 3;
-        col.shadow = "rgba(1a1a1aee)";
+        "col.shadow" = "rgba(1a1a1aee)";
       };
       animations = {
         enabled = true;
