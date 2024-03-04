@@ -92,11 +92,9 @@
         "Control SHIFT, L, exec, ~/Scripts/lock.sh"
         # Copy area with grimshot
         "$altMod SHIFT, S, exec, grimshot copy area"
-        # Swap workspaces on monitors
-        "$mainMod SHIFT, S, swapactiveworkspaces, DP-1 DP-3"
-        # Kanshi reloads
-        "$mainMod SHIFT, M, exec, reset-monitor.sh"
-        "$mainMod SHIFT, N, exec, setup-monitor.sh"
+
+        ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
       ];
       binde = [
         ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"

@@ -177,7 +177,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [vim unzip appimage-run virtiofsd virtio-win];
+  environment.systemPackages = with pkgs; [vim unzip appimage-run virtiofsd virtio-win pulseaudio];
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
     interpreter = "${pkgs.appimage-run}/bin/appimage-run";
