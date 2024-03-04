@@ -243,5 +243,7 @@
   services.tlp.enable = true;
   services.power-profiles-daemon.enable = false;
 
+  security.pam.services.swaylock = {};
+
   system.stateVersion = "23.11";
 }
