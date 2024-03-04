@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [../wayland-wm];
 
   wayland.windowManager.hyprland = {

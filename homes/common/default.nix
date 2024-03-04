@@ -4,5 +4,5 @@
   pkgs,
   ...
 }: {
-  imports = [./cli ./desktops/hyprland ./applications];
+  imports = [./cli ./applications];
 }

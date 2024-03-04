@@ -1,11 +1,12 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: let
   home = ../../homes;
 in {
-  imports = ["${home}/common"];
+  imports = ["${home}/common" "${home}/common/desktops/hyprland"];
 
   home.username = "logan";
   home.homeDirectory = "/home/logan";
@@ -76,6 +77,52 @@ in {
     };
   };
 
+  wayland.windowManager.hyprland.extraConfig = ''
+    monitor=eDP-1,3840x2160@60,0x0,2
+    monitor=,preferred,auto,1,mirror,eDP-1
+    input {
+      kb_layout = us
+        kb_variant =
+        kb_model =
+        kb_options =
+        kb_rules =
+        numlock_by_default = true
+
+        follow_mouse = 1
+
+        touchpad {
+          natural_scroll = true
+        }
+
+      sensitivity = 0.5 # -1.0 - 1.0, 0 means no modification.
+    }
+  '';
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    # x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 16;
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.tokyo-night-gtk;
+      name = "Tokyonight-Dark-BL";
+    };
+
+    iconTheme = {
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita";
+    };
+
+    font = {
+      name = "Sans";
+      size = 11;
+    };
+  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
