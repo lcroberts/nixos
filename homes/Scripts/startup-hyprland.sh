@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 kitty tmux new -As main 2>&1 &
 # firefox 2>&1 &

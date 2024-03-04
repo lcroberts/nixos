@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 shopt -s extglob
 
 # A wrapper script to launch cheat engine within a certain steam wine prefix.

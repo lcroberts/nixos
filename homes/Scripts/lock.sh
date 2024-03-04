@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # image=~/Pictures/Wallpapers/currentbg
 # swaylock -i $image
