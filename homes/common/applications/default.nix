@@ -1,14 +1,14 @@
 {pkgs, ...}: {
   imports = [./kitty];
   home.packages = with pkgs; [
-    onedrive
-    onedrivegui
+    stable.onedrive
+    stable.onedrivegui
     obsidian
     anki-bin
     spotifywm
     vesktop # discord with vencord
-    floorp
-    keepassxc
+    stable.floorp
+    stable.keepassxc
     evince
     kdePackages.filelight
     drawio

@@ -3,6 +3,7 @@
   inputs,
   lib,
   config,
+  outputs,
   ...
 }: {
   nix.settings = {
@@ -13,6 +14,14 @@
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
+  ];
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [
+    # Add overlays your own flake exports (from overlays and pkgs dir):
+    outputs.overlays.modifications
+    outputs.overlays.stable-packages
   ];
 
   # Bootloader.
@@ -168,12 +177,9 @@
   ];
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {inherit inputs outputs;};
     users = {"logan" = import ./home.nix;};
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

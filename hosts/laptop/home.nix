@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   lib,
+  outputs,
   ...
 }: let
   home = ../../homes;
@@ -13,6 +14,8 @@ in {
   nixpkgs = {
     overlays = [
       inputs.neovim-nightly-overlay.overlay
+      outputs.overlays.modifications
+      outputs.overlays.stable-packages
     ];
     config = {
       allowUnfree = true;
