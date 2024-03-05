@@ -32,6 +32,7 @@ in {
 
   home.packages = with pkgs; [
     flatpak
+    libsForQt5.qt5ct
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -67,6 +68,10 @@ in {
       force = true;
       recursive = true;
       source = "${home}/configs/fcitx5-themes";
+    };
+    ".config/qt5ct" = {
+      recursive = true;
+      source = "${home}/configs/qt5ct";
     };
   };
 
@@ -115,6 +120,11 @@ in {
       package = pkgs.gnome.adwaita-icon-theme;
       name = "Adwaita";
     };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "qtct";
   };
 
   # Let Home Manager install and manage itself.
