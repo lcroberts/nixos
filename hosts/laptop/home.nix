@@ -39,9 +39,17 @@ in {
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    (pkgs.writeShellScriptBin "startup-hyprland" ''
+      floorp 2>&1 &
+      kitty tmux new -As main 2>&1 &
+      onedrivegui 2>&1 &
+      sleep 5
+      nm-applet
+      sleep 20
+      hyprctl keyword windowrule "workspace unset,kitty"
+      hyprctl keyword windowrule "workspace unset,firefox"
+      hyprctl keyword windowrule "workspace unset,floorp"
+    '')
   ];
 
   home.sessionVariables = {
@@ -86,6 +94,8 @@ in {
   };
 
   wayland.windowManager.hyprland.extraConfig = ''
+    exec-once = swayidle -w before-sleep "~/Scripts/lock.sh
+    exec-once = startup-hyprland
     monitor=eDP-1,3840x2160@60,0x0,2
     monitor=,preferred,auto,1,mirror,eDP-1
     input {

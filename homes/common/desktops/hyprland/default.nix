@@ -17,8 +17,6 @@
       ];
       exec-once = [
         "/nix/store/$(ls -la /nix/store | grep polkit-kde-agent | grep '^d' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 &"
-        "nm-applet"
-        "onedrivegui"
         "fcitx5"
       ];
       bind = [
