@@ -114,6 +114,10 @@ in {
 
       sensitivity = 0.5 # -1.0 - 1.0, 0 means no modification.
     }
+    gestures {
+        workspace_swipe = true
+        workspace_swipe_fingers = 3
+    }
   '';
 
   home.pointerCursor = {

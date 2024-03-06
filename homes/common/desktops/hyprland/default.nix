@@ -93,6 +93,9 @@
 
         ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+
+        "$mainMod $altMod, up, exec, brightnessctl -d *::kbd_backlight set +33%"
+        "$mainMod $altMod, down, exec, brightnessctl -d *::kbd_backlight set 33%-"
       ];
       binde = [
         ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"

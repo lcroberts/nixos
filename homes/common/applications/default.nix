@@ -8,7 +8,7 @@
     spotifywm
     vesktop # discord with vencord
     stable.floorp
-    stable.keepassxc
+    keepassxc
     evince
     kdePackages.filelight
     drawio
