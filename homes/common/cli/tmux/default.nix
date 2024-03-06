@@ -60,12 +60,8 @@
 
 
 
-      set -g @plugin 'tmux-plugins/tmux-sensible'
-      set -g @plugin 'christoomey/vim-tmux-navigator'
-      set -g @plugin "janoamaral/tokyo-night-tmux"
       # Set clipboard for tmux yank
       set -g set-clipboard on
-
     '';
     plugins = with pkgs; [
       tmuxPlugins.sensible
@@ -73,21 +69,6 @@
       tmuxPlugins.yank
       tmuxPlugins.open
       tmuxPlugins.tmux-fzf
-      {
-        plugin = tmuxPlugins.resurrect;
-        extraConfig = ''
-          set -g @resurrect-dir $XDG_DATA_HOME/tmux/resurrect
-          set -g @resurrect-capture-pane-contents 'on'
-          set -g @resurrect-processes 'btop'
-        '';
-      }
-      {
-        plugin = tmuxPlugins.continuum;
-        extraConfig = ''
-          set -g @continuum-save-interval '15'
-          set -g @continuum-restore 'on'
-        '';
-      }
       {
         plugin = tmuxPlugins.mkTmuxPlugin {
           pluginName = "tokyo-night-tmux";
@@ -100,6 +81,21 @@
             sha256 = "sha256-am3qcVJOt27gpu1UQ+o1jPnCX68kDzSHvER12Lh2cvY=";
           };
         };
+      }
+      # Resurrect and continuum should be last. Otherwise there are problems
+      {
+        plugin = tmuxPlugins.resurrect;
+        extraConfig = ''
+          set -g @resurrect-dir $XDG_DATA_HOME/tmux/resurrect
+          set -g @resurrect-processes 'btop'
+        '';
+      }
+      {
+        plugin = tmuxPlugins.continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '10'
+        '';
       }
     ];
   };
