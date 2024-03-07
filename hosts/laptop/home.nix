@@ -41,13 +41,12 @@ in {
     # # environment:
     (pkgs.writeShellScriptBin "startup-hyprland" ''
       floorp 2>&1 &
-      kitty tmux new -As main 2>&1 &
-      onedrivegui 2>&1 &
+      kitty 2>&1 &
       sleep 5
+      onedrivegui 2>&1 &
       nm-applet
       sleep 20
       hyprctl keyword windowrule "workspace unset,kitty"
-      hyprctl keyword windowrule "workspace unset,firefox"
       hyprctl keyword windowrule "workspace unset,floorp"
     '')
   ];
@@ -120,12 +119,6 @@ in {
     }
   '';
 
-  home.pointerCursor = {
-    x11.enable = true;
-    package = pkgs.gnome.adwaita-icon-theme;
-    name = "Adwaita";
-  };
-
   gtk = {
     enable = true;
     theme = {
@@ -142,6 +135,14 @@ in {
   qt = {
     enable = true;
     platformTheme = "qtct";
+  };
+
+  home.pointerCursor = {
+    x11.enable = true;
+    gtk.enable = true;
+    size = 25;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
   };
 
   # Let Home Manager install and manage itself.
