@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   imports = [./kitty];
   home.packages = with pkgs; [
-    stable.onedrive
-    stable.onedrivegui
+    onedrive
+    onedrivegui
     obsidian
     anki-bin
     spotifywm

@@ -35,7 +35,8 @@ in {
 
   home.packages = with pkgs; [
     flatpak
-    libsForQt5.qt5ct
+    # libsForQt5.qt5ct
+    kdePackages.qt6ct
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -79,9 +80,9 @@ in {
       recursive = true;
       source = "${home}/configs/fcitx5-themes";
     };
-    ".config/qt5ct" = {
+    ".config/qt6ct" = {
       recursive = true;
-      source = "${home}/configs/qt5ct";
+      source = "${home}/configs/qt6ct";
     };
   };
 
@@ -134,7 +135,7 @@ in {
 
   qt = {
     enable = true;
-    platformTheme = "qtct";
+    # platformTheme = "qtct";
   };
 
   home.pointerCursor = {

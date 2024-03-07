@@ -78,7 +78,7 @@
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.displayManager.sddm.wayland.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
 
   # Gnome DE
   # services.xserver.displayManager.gdm.enable = true;
@@ -126,7 +126,7 @@
     pulse.enable = true;
     wireplumber.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -206,7 +206,7 @@
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
 
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
 
     # Not officially in the specification
     XDG_BIN_HOME = "$HOME/.local/bin";
@@ -248,7 +248,6 @@
   };
   programs.virt-manager.enable = true;
 
-  services.tlp.enable = true;
   services.power-profiles-daemon.enable = false;
 
   security.pam.services.swaylock = {};
