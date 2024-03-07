@@ -147,7 +147,7 @@
     description = "Logan Roberts";
     extraGroups = ["networkmanager" "wheel" "libvirtd" "docker"];
     shell = pkgs.bash;
-    packages = with pkgs; [
+    packages = with pkgs.stable; [
       firefox
       xsel
       git
@@ -183,7 +183,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [vim unzip appimage-run virtiofsd virtio-win pulseaudio];
+  environment.systemPackages = with pkgs.stable; [vim unzip appimage-run virtiofsd virtio-win pulseaudio];
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
     interpreter = "${pkgs.appimage-run}/bin/appimage-run";
