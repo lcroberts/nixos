@@ -135,7 +135,7 @@ in {
 
   qt = {
     enable = true;
-    # platformTheme = "qtct";
+    platformTheme = "qtct";
   };
 
   home.pointerCursor = {

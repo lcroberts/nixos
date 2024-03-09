@@ -76,8 +76,11 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = true;
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    # theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
+  };
   services.xserver.desktopManager.plasma6.enable = true;
 
   # Gnome DE
@@ -183,7 +186,19 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs.stable; [vim unzip appimage-run virtiofsd virtio-win pulseaudio];
+  environment.systemPackages = with pkgs.stable; [
+    vim
+    unzip
+    appimage-run
+    virtiofsd
+    virtio-win
+    pulseaudio
+
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtsvg
+  ];
+
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
     interpreter = "${pkgs.appimage-run}/bin/appimage-run";
