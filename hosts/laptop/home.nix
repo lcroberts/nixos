@@ -35,7 +35,7 @@ in {
 
   home.packages = with pkgs; [
     flatpak
-    # libsForQt5.qt5ct
+    libsForQt5.qt5ct
     kdePackages.qt6ct
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -83,6 +83,10 @@ in {
     ".config/qt6ct" = {
       recursive = true;
       source = "${home}/configs/qt6ct";
+    };
+    ".config/qt5ct" = {
+      recursive = true;
+      source = "${home}/configs/qt5ct";
     };
   };
 

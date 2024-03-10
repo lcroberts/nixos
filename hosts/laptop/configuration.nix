@@ -79,9 +79,9 @@
   services.xserver.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    # theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
+    theme = "catppuccin-mocha";
   };
-  services.xserver.desktopManager.plasma6.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
   # Gnome DE
   # services.xserver.displayManager.gdm.enable = true;
@@ -186,17 +186,19 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs.stable; [
-    vim
-    unzip
-    appimage-run
-    virtiofsd
-    virtio-win
-    pulseaudio
+  environment.systemPackages = with pkgs; [
+    stable.vim
+    stable.unzip
+    stable.appimage-run
+    stable.virtiofsd
+    stable.virtio-win
+    stable.pulseaudio
 
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtsvg
+    kdePackages.sddm-kcm
+    (callPackage ./sddm-theme.nix {})
   ];
 
   boot.binfmt.registrations.appimage = {
@@ -221,7 +223,7 @@
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
 
-    QT_QPA_PLATFORMTHEME = "qt6ct";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
 
     # Not officially in the specification
     XDG_BIN_HOME = "$HOME/.local/bin";
