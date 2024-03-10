@@ -76,6 +76,7 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
+  services.xserver.displayManager.defaultSession = "hyprland";
   services.xserver.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
