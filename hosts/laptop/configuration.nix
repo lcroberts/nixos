@@ -157,6 +157,7 @@
       git
       steam-run # useful to emulate a standard file system for some applications
       (pkgs.writeShellScriptBin "rebuild-system" ''
+        rm ~/.gtkrc-2.0
         sudo nixos-rebuild switch --flake $HOME/nixos#laptop
       '')
     ];
@@ -167,18 +168,21 @@
     # here, NOT in environment.systemPackages
   ];
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
-    source-code-pro
-    noto-fonts
-    noto-fonts-emoji-blob-bin
-    carlito
-    dejavu_fonts
-    ipafont
-    kochi-substitute
-    ttf_bitstream_vera
-    noto-fonts-cjk
-  ];
+  fonts = {
+    fontDir.enable = true;
+    packages = with pkgs; [
+      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
+      source-code-pro
+      noto-fonts
+      noto-fonts-emoji-blob-bin
+      carlito
+      dejavu_fonts
+      ipafont
+      kochi-substitute
+      ttf_bitstream_vera
+      noto-fonts-cjk
+    ];
+  };
 
   home-manager = {
     extraSpecialArgs = {inherit inputs outputs;};

@@ -9,7 +9,6 @@
     vesktop # discord with vencord
     stable.floorp
     keepassxc
-    evince
     kdePackages.filelight
     drawio
     mpv
