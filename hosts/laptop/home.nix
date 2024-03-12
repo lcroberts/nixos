@@ -34,7 +34,6 @@ in {
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
-    flatpak
     libsForQt5.qt5ct
     kdePackages.qt6ct
     # # You can also create simple shell scripts directly inside your

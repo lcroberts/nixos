@@ -187,6 +187,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  services.flatpak.enable = true;
   environment.systemPackages = with pkgs; [
     stable.vim
     stable.unzip
@@ -194,6 +195,8 @@
     stable.virtiofsd
     stable.virtio-win
     stable.pulseaudio
+    stable.distrobox
+    stable.openssl
 
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtgraphicaleffects
@@ -201,6 +204,7 @@
     kdePackages.sddm-kcm
     (callPackage ./sddm-theme.nix {})
   ];
+  virtualisation.docker.enable = true;
 
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
