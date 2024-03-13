@@ -151,12 +151,12 @@
     description = "Logan Roberts";
     extraGroups = ["networkmanager" "wheel" "libvirtd" "docker"];
     shell = pkgs.bash;
-    packages = with pkgs.stable; [
-      firefox
-      xsel
-      git
-      steam-run # useful to emulate a standard file system for some applications
-      dolphin
+    packages = with pkgs; [
+      stable.firefox
+      stable.xsel
+      stable.git
+      stable.steam-run # useful to emulate a standard file system for some applications
+      stable.dolphin
       okular
       (pkgs.writeShellScriptBin "rebuild-system" ''
         rm ~/.gtkrc-2.0
