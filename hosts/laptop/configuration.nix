@@ -82,7 +82,7 @@
     wayland.enable = true;
     theme = "catppuccin-mocha";
   };
-  services.xserver.desktopManager.plasma5.enable = true;
+  # services.xserver.desktopManager.plasma5.enable = true;
 
   # Gnome DE
   # services.xserver.displayManager.gdm.enable = true;
@@ -156,6 +156,8 @@
       xsel
       git
       steam-run # useful to emulate a standard file system for some applications
+      dolphin
+      okular
       (pkgs.writeShellScriptBin "rebuild-system" ''
         rm ~/.gtkrc-2.0
         sudo nixos-rebuild switch --flake $HOME/nixos#laptop
@@ -205,7 +207,10 @@
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtsvg
-    kdePackages.sddm-kcm
+    libsForQt5.breeze-qt5
+    libsForQt5.qt5ct
+    libsForQt5.breeze-icons
+    kdePackages.qt6ct
     (callPackage ./sddm-theme.nix {})
   ];
   virtualisation.docker.enable = true;

@@ -34,8 +34,6 @@ in {
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
-    libsForQt5.qt5ct
-    kdePackages.qt6ct
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
