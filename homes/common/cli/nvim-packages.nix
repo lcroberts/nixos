@@ -9,8 +9,9 @@
     luajit
     gcc
     python3
+    python311Packages.python-lsp-server
     go
-    nodePackages.npm
+    nodejs_21
     rustup
     alejandra
     gnumake

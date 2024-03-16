@@ -158,6 +158,7 @@
       stable.steam-run # useful to emulate a standard file system for some applications
       stable.dolphin
       okular
+      stable.libreoffice
       (pkgs.writeShellScriptBin "rebuild-system" ''
         rm ~/.gtkrc-2.0
         sudo nixos-rebuild switch --flake $HOME/nixos#laptop
@@ -203,6 +204,7 @@
     stable.pulseaudio
     stable.distrobox
     stable.openssl
+    stable.glibc
 
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtgraphicaleffects
